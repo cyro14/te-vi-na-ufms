@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1056707304700",
+    "project_id": "te-vi-ufms",
+    "storage_bucket": "te-vi-ufms.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056707304700:android:2e45375838f05037c60b79",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056707304700-0na8dv9gcuc7jarnfsrt2mm38qik6k15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBprolmTw3PT2ddGTXy0MJ6ugp4e1bETBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056707304700-0na8dv9gcuc7jarnfsrt2mm38qik6k15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
