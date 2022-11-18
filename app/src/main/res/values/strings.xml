@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">My Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="senha">Senha</string>
+    <string name="e_mail">E-mail</string>
+    <string name="nome">Nome</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="criar_ln_conta">Criar \nConta</string>
+    <string name="login">Login</string>
+    <string name="entrar">Entrar</string>
+    <string name="esqueceu_a_senha">Esqueceu a Senha?</string>
 </resources>
