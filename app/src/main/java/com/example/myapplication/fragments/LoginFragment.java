@@ -44,7 +44,8 @@ public class LoginFragment extends Fragment {
 
     private EditText emailEDT, senhaEDT;
     private TextView cadastrarTV, esqueceuSenhaTV;
-    private Button loginBtn, googleLoginBtn;
+    private Button loginBtn;
+            //googleLoginBtn;
     private ProgressBar barraDeProgresso;
     GoogleSignInClient  mGoogleSignInClient;
 
@@ -112,13 +113,13 @@ public class LoginFragment extends Fragment {
                         });
             }
         });
-
+/*
         googleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
-            }
-        });
+
+        });*/
     }
 
     private void sendUserToMainActivity() {
@@ -137,7 +138,7 @@ public class LoginFragment extends Fragment {
         emailEDT =  view.findViewById(R.id.emailEDT);
         senhaEDT =  view.findViewById(R.id.senhaEDT);
         loginBtn =  view.findViewById(R.id.loginBtn);
-        googleLoginBtn =  view.findViewById(R.id.googleLoginBtn);
+        //googleLoginBtn =  view.findViewById(R.id.googleLoginBtn);
         cadastrarTV =  view.findViewById(R.id.cadastroTV);
         esqueceuSenhaTV =  view.findViewById(R.id.esqueceuSenhaTV);
         barraDeProgresso =  view.findViewById(R.id.barraDeProgresso);
@@ -152,7 +153,7 @@ public class LoginFragment extends Fragment {
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
     }
 
-    private void signIn(){
+    /*private void signIn(){
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
@@ -188,7 +189,7 @@ public class LoginFragment extends Fragment {
                     }
                 });
     }
-
+*/
 
 
     private void updateUI(FirebaseUser user) {

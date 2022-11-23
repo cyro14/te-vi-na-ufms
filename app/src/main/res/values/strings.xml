@@ -11,4 +11,5 @@
     <string name="login">Login</string>
     <string name="entrar">Entrar</string>
     <string name="esqueceu_a_senha">Esqueceu a Senha?</string>
+    <string name="novo_aqui_criar_conta">Novo Aqui? Criar Conta</string>
 </resources>

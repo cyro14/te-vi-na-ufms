@@ -23,20 +23,22 @@
         android:layout_centerInParent="true">
         <EditText
             android:id="@+id/emailEDT"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
-            android:hint="@string/e_mail"/>
+            android:hint="@string/e_mail"
+            android:autofillHints="" />
         <EditText
             android:id="@+id/senhaEDT"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
-            android:hint="@string/senha"/>
+            android:hint="@string/senha"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,8 +48,7 @@
             android:layout_gravity="end"
             android:textStyle="bold"
             android:layout_marginEnd="16dp"
-            android:id="@+id/esqueceuSenhaTV"
-            android:layout_marginRight="16dp"/>
+            android:id="@+id/esqueceuSenhaTV" />
 
     </LinearLayout>
 
@@ -55,11 +56,11 @@
         android:id="@+id/barraDeProgresso"
         android:layout_width="wrap_content"
         android:layout_height="120dp"
-        android:layout_above="@id/loginBtn"
         android:layout_below="@+id/ll1"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="52dp"
         android:visibility="gone"/>
+
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
@@ -68,21 +69,12 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/btn_bg"
-        android:text="@string/entrar"
-        android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/googleLoginBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/loginBtn"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/btn_bg"
         android:text="@string/entrar"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+
     <TextView
         android:id="@+id/cadastroTV"
         android:layout_width="wrap_content"
@@ -90,8 +82,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp"
-        android:text="Novo Aqui? Criar Conta"
-        android:textColor="@color/material_dynamic_primary0"
+        android:text="@string/novo_aqui_criar_conta"
         android:textStyle="bold" />
 
 
