@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Te Vi na UFMS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="confirmar_senha">Confirmar senha</string>
@@ -12,4 +12,7 @@
     <string name="entrar">Entrar</string>
     <string name="esqueceu_a_senha">Esqueceu a Senha?</string>
     <string name="novo_aqui_criar_conta">Novo Aqui? Criar Conta</string>
+    <string name="user_nome">Nome</string>
+    <string name="_2h">2h</string>
+    <string name="_100_likes">100 Likes</string>
 </resources>

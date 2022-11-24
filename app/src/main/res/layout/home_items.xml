@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imagemPerfil"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:civ_border_color="#676767"
+        app:civ_border_width="1dp"
+        android:src="@drawable/ic_baseline_person_24"
+        android:layout_margin="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@id/imagemPerfil"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_toEndOf="@+id/imagemPerfil">
+
+        <TextView
+            android:id="@+id/nomeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/user_nome"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/timeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_2h"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/imagemPerfil"
+        android:id="@+id/imageView"
+        android:background="#ff0000"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/likeBtn"
+            android:layout_margin="8dp"
+            android:background="@drawable/ic_baseline_star_border_24"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/commentBtn"
+            android:layout_margin="8dp"
+            android:background="@drawable/ic_baseline_chat_bubble_outline_24"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/likeCountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:padding="8dp"
+        android:paddingStart="8dp"
+        android:text="@string/_100_likes"
+        android:textStyle="bold" />
+</RelativeLayout>
