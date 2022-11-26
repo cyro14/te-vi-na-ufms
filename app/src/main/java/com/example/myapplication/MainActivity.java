@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_home_24));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_search_24));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_add_24));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_star_border_24));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_star_24));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_baseline_person_outline_24));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_CENTER);
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                         tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_star_24);
                         break;
                     case 4:
-                        tabLayout.getTabAt(4).setIcon(android.R.drawable.ic_menu_help);
+                        tabLayout.getTabAt(4).setIcon(R.drawable.ic_baseline_person_24);
                         break;
                 }
 
@@ -102,9 +102,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);

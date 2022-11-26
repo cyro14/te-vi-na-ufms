@@ -15,4 +15,8 @@
     <string name="user_nome">Nome</string>
     <string name="_2h">2h</string>
     <string name="_100_likes">100 Likes</string>
+    <string name="ol_eu_estou_usando_te_vi_na_ufms">Olá eu estou usando Te Vi na UFMS</string>
+    <string name="seguidores">Seguidores</string>
+    <string name="seguindo">Seguindo</string>
+    <string name="posts">Posts</string>
 </resources>
