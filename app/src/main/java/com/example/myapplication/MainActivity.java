@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                         tabLayout.getTabAt(3).setIcon(R.drawable.ic_baseline_star_border_24);
                         break;
                     case 4:
-                        tabLayout.getTabAt(4).setIcon(android.R.drawable.ic_menu_help);
+                        tabLayout.getTabAt(4).setIcon(R.drawable.ic_baseline_person_outline_24);
                         break;
                 }
             }
