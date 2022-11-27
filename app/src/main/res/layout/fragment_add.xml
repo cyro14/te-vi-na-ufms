@@ -18,12 +18,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="188dp"
-        android:text="Button"
+        android:text="Tirar foto"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="158dp"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/postar"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Postar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="158dp" />
 
     <ImageView
         android:id="@+id/imageView2"
