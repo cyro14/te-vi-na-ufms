@@ -111,14 +111,6 @@ public class CriarContaFragment extends Fragment {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser user = auth.getCurrentUser();
-                    user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getContext(), "Foi enviado um link de verificação no seu e-mail", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
                     uploadUser(user, nome, email);
                 }else{
                     barraDeProgresso.setVisibility(View.GONE);
@@ -134,8 +126,11 @@ public class CriarContaFragment extends Fragment {
 
         map.put("nome", nome);
         map.put("email", email);
-        map.put("fotoDePerfil", "");
+        map.put("imagemPerfil", "");
         map.put("uid", user.getUid());
+        map.put("seguindo", 0);
+        map.put("seguidores", 0);
+        map.put("status", " ");
 
         FirebaseFirestore.getInstance().collection("Users").document(user.getUid())
                 .set(map)

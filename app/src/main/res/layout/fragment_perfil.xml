@@ -52,20 +52,20 @@
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:id="@+id/linear_1"
-        android:layout_below="@id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:id="@+id/linear_1"
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/imagemPerfil"
-            app:civ_border_color="#76d1fa"
-            app:civ_border_width="1dp"
-            android:src="@drawable/ic_baseline_person_24"
-            android:layout_margin="14dp"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:id="@+id/imagemPerfil"
+                app:civ_border_color="#76d1fa"
+                app:civ_border_width="1dp"
+                android:src="@drawable/ic_baseline_person_24"
+                android:layout_margin="14dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,85 +94,119 @@
                     android:textColor="@color/black"/>
 
             </LinearLayout>
-     </LinearLayout>
+         </LinearLayout>
 
-    <LinearLayout
-        android:visibility="gone"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:id="@+id/combinedLayout"
         android:layout_below="@id/linear_1">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/countLayout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="250"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/seguindo"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/countSeguindoTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="250"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/seguindo"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/countSeguidoresTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="25k"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/seguidores"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/countPostsTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="2k"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/posts"
+                    android:gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
+
+        <Button
+            android:id="@+id/seguirBtn"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_centerHorizontal="true"
+            android:minWidth="160dp"
+            android:text="Seguir"
+            android:visibility="gone"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="25k"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/seguidores"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/view"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="2k"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/posts"
-                android:gravity="center_horizontal"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/combinedLayout" />
 
 </RelativeLayout>

@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
             android:hint="@string/nome"/>
         <EditText
             android:id="@+id/emailEDT"
@@ -35,25 +34,25 @@
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
             android:hint="@string/e_mail"/>
+
         <EditText
             android:id="@+id/senhaEDT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
-            android:hint="@string/senha"/>
+            android:hint="@string/senha"
+            android:inputType="textPassword"
+            android:padding="12dp" />
 
         <EditText
             android:id="@+id/confirmaSenhaEDT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
             android:layout_margin="12dp"
-            android:background="@drawable/text_box"
-            android:hint="@string/confirmar_senha"/>
+            android:hint="@string/confirmar_senha"
+            android:inputType="textPassword"
+            android:padding="12dp" />
     </LinearLayout>
 
     <ProgressBar
@@ -72,7 +71,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/btn_bg"
         android:text="@string/criar_conta"
         android:textColor="@color/white" />
 
@@ -85,7 +83,7 @@
         android:layout_marginBottom="26dp"
         android:text="Voltar para o Login"
         android:textStyle="bold"
-        android:textColor="@color/material_dynamic_primary0"/>
+        android:textColor="@color/black"/>
 
 
 </RelativeLayout>
