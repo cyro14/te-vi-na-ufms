@@ -20,6 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.FragmentReplacerActivity;
 import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -43,11 +44,10 @@ import java.util.Map;
 public class LoginFragment extends Fragment {
 
     private EditText emailEDT, senhaEDT;
-    private TextView cadastrarTV, esqueceuSenhaTV;
-    private Button loginBtn;
+    private Button loginBtn, cadastroTV;
             //googleLoginBtn;
     private ProgressBar barraDeProgresso;
-    GoogleSignInClient  mGoogleSignInClient;
+    //GoogleSignInClient  mGoogleSignInClient;
 
     private static final int RC_SIGN_IN = 1;
 
@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment {
         init(view);
 
 
-
+        auth = FirebaseAuth.getInstance();
 
         clickListener();
     }
@@ -113,6 +113,14 @@ public class LoginFragment extends Fragment {
                         });
             }
         });
+
+        cadastroTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((FragmentReplacerActivity)getActivity()).setFragment(new CriarContaFragment());
+            }
+        });
+
 /*
         googleLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,8 +147,8 @@ public class LoginFragment extends Fragment {
         senhaEDT =  view.findViewById(R.id.senhaEDT);
         loginBtn =  view.findViewById(R.id.loginBtn);
         //googleLoginBtn =  view.findViewById(R.id.googleLoginBtn);
-        cadastrarTV =  view.findViewById(R.id.cadastroTV);
-        esqueceuSenhaTV =  view.findViewById(R.id.esqueceuSenhaTV);
+        cadastroTV =  view.findViewById(R.id.cadastroTV);
+        //esqueceuSenhaTV =  view.findViewById(R.id.esqueceuSenhaTV);
         barraDeProgresso =  view.findViewById(R.id.barraDeProgresso);
 
         auth = FirebaseAuth.getInstance();
@@ -150,9 +158,9 @@ public class LoginFragment extends Fragment {
                 .requestEmail()
                 .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
+        //mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
     }
-
+//Cadastro Google
     /*private void signIn(){
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -199,8 +207,11 @@ public class LoginFragment extends Fragment {
 
         map.put("nome", account.getDisplayName());
         map.put("email", account.getEmail());
-        map.put("fotoDePerfil", String.valueOf(account.getPhotoUrl()));
+        map.put("imagemPerfil", String.valueOf(account.getPhotoUrl()));
         map.put("uid", user.getUid());
+        map.put("seguindo", 0);
+        map.put("seguidores", 0);
+        map.put("status", " ");
 
         FirebaseFirestore.getInstance().collection("Users").document(user.getUid())
                 .set(map)
