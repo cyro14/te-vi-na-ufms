@@ -60,9 +60,9 @@ public class Home extends Fragment {
     }
 
     private void loadDataFromFirestore() {
-        list.add(new HomeModel("Cyro","25/11/2022","","","123456",12));
-        list.add(new HomeModel("Cyro","25/11/2022","","","654321",24));
-        list.add(new HomeModel("Cyro","25/11/2022","","","000000",1));
+        list.add(new HomeModel("Cyro","25/11/2022","","","123456",0));
+        list.add(new HomeModel("Davi","27/11/2022","","","654321",0));
+        list.add(new HomeModel("Cyro","25/11/2022","","","000000",0));
         list.add(new HomeModel("Cyro","25/11/2022","","","777777",0));
 
         adapter.notifyDataSetChanged();
@@ -82,6 +82,6 @@ public class Home extends Fragment {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
     }
-    
+
     
 }
