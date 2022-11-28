@@ -44,7 +44,8 @@ import java.util.Map;
 public class LoginFragment extends Fragment {
 
     private EditText emailEDT, senhaEDT;
-    private Button loginBtn, cadastroTV;
+    private TextView cadastroTV;
+    private Button loginBtn;
             //googleLoginBtn;
     private ProgressBar barraDeProgresso;
     //GoogleSignInClient  mGoogleSignInClient;
