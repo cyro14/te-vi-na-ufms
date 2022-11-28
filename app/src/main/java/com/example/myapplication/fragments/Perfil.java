@@ -1,5 +1,7 @@
 package com.example.myapplication.fragments;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.lights.LightState;
 import android.os.Bundle;
 
@@ -23,6 +25,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.databinding.FragmentAddBinding;
+import com.example.myapplication.databinding.FragmentPerfilBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -36,12 +40,15 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.List;
 import com.google.firebase.firestore.Query;
+
+import java.io.File;
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -55,6 +62,7 @@ public class Perfil extends Fragment {
     private FirebaseUser user;
     private StorageReference storageReference;
     private String uid;
+    private FragmentPerfilBinding binding;
 
     private FirestoreRecyclerAdapter<PostImageModel, PostImageHolder> adapter;
     boolean ehMeuPerfil = true;
@@ -67,6 +75,7 @@ public class Perfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentPerfilBinding.inflate(inflater, container, false);
 
         return inflater.inflate(R.layout.fragment_perfil, container, false);
     }
@@ -87,7 +96,6 @@ public class Perfil extends Fragment {
         }
 
         loadBasicData();
-        imagens();
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
@@ -142,7 +150,7 @@ public class Perfil extends Fragment {
                 .setQuery(query,PostImageModel.class)
                 .build();
 
-            adapter = new FirestoreRecyclerAdapter<PostImageModel, PostImageHolder>(options) {
+        adapter = new FirestoreRecyclerAdapter<PostImageModel, PostImageHolder>(options) {
             @NonNull
             @Override
             public PostImageHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -160,7 +168,7 @@ public class Perfil extends Fragment {
             }
         };
 
-        }
+    }
 
 
     private void init(View view) {
@@ -205,24 +213,5 @@ public class Perfil extends Fragment {
     public void onStop() {
         super.onStop();
         adapter.stopListening();
-    }
-
-    private void imagens(){
-        StorageReference listRef = FirebaseStorage.getInstance().getReference().child(user.getUid()+"/images");
-
-        listRef.listAll()
-                .addOnSuccessListener(new OnSuccessListener<ListResult>() {
-                    @Override
-                    public void onSuccess(ListResult listResult) {
-                        for (StorageReference prefix : listResult.getPrefixes()) {
-                            Toast.makeText(getContext(), prefix.getName(), Toast.LENGTH_SHORT).show();
-                        }
-
-                        for (StorageReference item : listResult.getItems()) {
-                            Toast.makeText(getContext(), item.getName(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
     }
 }
