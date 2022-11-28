@@ -22,6 +22,8 @@ import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentAddBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -38,6 +40,7 @@ public class Add extends Fragment {
     Uri imagURL;
     StorageReference storageReference;
     ProgressDialog progressDialog;
+    private FirebaseUser user;
 
 
     @Override
@@ -46,6 +49,8 @@ public class Add extends Fragment {
 
 
         binding = FragmentAddBinding.inflate(inflater, container, false);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
         return binding.getRoot();
     }
 
@@ -73,7 +78,7 @@ public class Add extends Fragment {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.CANADA);
                 Date now = new Date();
                 String fileName = formatter.format(now);
-                storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+                storageReference = FirebaseStorage.getInstance().getReference(user.getUid()+"/images/"+fileName);
 
 
                 storageReference.putFile(imagURL).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

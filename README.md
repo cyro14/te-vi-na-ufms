@@ -14,7 +14,6 @@ O sistema Te Vi na UFMS trata-se de um aplicativo para o Sistema Android. Entre 
 
 Na presente seção devem ser descritas as várias classes de usuário relevantes para o sistema.
 
-**Administrador do sistema** — É um moderador que possui a permissão de administração geral do sistema. Pode gerenciar estudantes, delegar permissão de perfil, e possui permissão para realizar as demais ações do sistema tais como remoção, criação e alteração.
 
 **Estudante** — Uma pessoa matriculada na Universidade Federal de Mato Grosso do Sul e deseja se informar sobre novidades e eventos, ou interagir com alunos do campus.
 
