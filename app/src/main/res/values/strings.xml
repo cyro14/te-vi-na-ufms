@@ -19,4 +19,6 @@
     <string name="seguidores">Seguidores</string>
     <string name="seguindo">Seguindo</string>
     <string name="posts">Posts</string>
+    <string name="tirar_foto">Tirar foto</string>
+    <string name="postar">Postar</string>
 </resources>
