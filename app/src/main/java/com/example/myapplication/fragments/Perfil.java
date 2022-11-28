@@ -7,18 +7,23 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
+import com.example.myapplication.model.PostImageModel;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -26,6 +31,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,7 +43,9 @@ public class Perfil extends Fragment {
     private RecyclerView recyclerView;
     private LinearLayout countLayout;
     private FirebaseUser user;
+    private String uid;
 
+    private FirestoreRecyclerAdapter<PostImageModel, PostImageHolder> adapter;
     boolean ehMeuPerfil = true;
 
 
@@ -67,6 +75,11 @@ public class Perfil extends Fragment {
         }
 
         loadBasicData();
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        loadPostImages();
+        recyclerView.setAdapter(adapter);
     }
 
     private void loadBasicData() {
@@ -104,8 +117,38 @@ public class Perfil extends Fragment {
     }
 
     private void loadPostImages(){
+        if(ehMeuPerfil){
+            uid = user.getUid();
+        }else{
 
-    }
+        }
+        DocumentReference reference = FirebaseFirestore.getInstance().collection("Images").document(uid);
+        Query query = reference.collection("Images");
+
+        FirestoreRecyclerOptions<PostImageModel> options =  new FirestoreRecyclerOptions.Builder<PostImageModel>()
+                .setQuery(query,PostImageModel.class)
+                .build();
+
+            adapter = new FirestoreRecyclerAdapter<PostImageModel, PostImageHolder>(options) {
+            @NonNull
+            @Override
+            public PostImageHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.profile_image_items, parent, false);
+
+                return new PostImageHolder(view);
+            }
+
+            @Override
+            protected void onBindViewHolder(@NonNull PostImageHolder holder, int position, @NonNull PostImageModel model) {
+                Glide.with(holder.itemView.getContext().getApplicationContext())
+                        .load(model.getImageUrl())
+                        .timeout(6500)
+                        .into(holder.imageView);
+            }
+        };
+
+        }
+
 
     private void init(View view) {
 
@@ -127,5 +170,27 @@ public class Perfil extends Fragment {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
+    }
+
+    private static class PostImageHolder extends RecyclerView.ViewHolder{
+        private ImageView imageView;
+
+        public PostImageHolder(@NonNull View itemView) {
+            super(itemView);
+
+            imageView = itemView.findViewById(R.id.imageView);
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
